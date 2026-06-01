@@ -62,8 +62,9 @@ _screen.Icon= 'C:\VFP9_MYSQL\POLES03B.ICO'
 *!*	_screen.opantalla_principal.cnt_logo.top= ((SYSMETRIC(2)/2)-(_screen.opantalla_principal.cnt_logo.height/2))-(SYSMETRIC(9)+70)
 *!*	_screen.opantalla_principal.cnt_logo.left= (SYSMETRIC(1)/2)-(_screen.opantalla_principal.cnt_logo.width/2)
 
+*!*	_screen.AddProperty("xconext","Driver={MySQL ODBC 5.1 Driver};Server=192.168.0.148;Port=3306;Database=db_ilumet;Uid=admin;Pwd=Admin1304;")
 
-_screen.AddProperty("xconext","Driver={MySQL ODBC 5.1 Driver};Server=192.168.0.148;Port=3306;Database=db_ilumet;Uid=admin;Pwd=Admin1304;")
+_screen.AddProperty("xconext","Driver={MySQL ODBC 5.1 Driver};Server=192.168.0.223;Port=3306;Database=db_ilumet;Uid=admin;Pwd=Admin121074*;")
 _screen.AddProperty("urlapi",0)
 _screen.AddProperty("estapres",0)
 _screen.AddProperty("alteralta","")

@@ -77,11 +77,11 @@ DEFINE CLASS facload AS form
 		DisabledBackColor = 87,87,87, ;
 		ForeColor = 255,255,255, ;
 		Height = 27, ;
-		Left = 353, ;
+		Left = 480, ;
 		Name = "Command1", ;
 		TabIndex = 16, ;
 		Themes = .F., ;
-		Top = 412, ;
+		Top = 410, ;
 		Width = 129
 		*< END OBJECT: BaseClass="commandbutton" />
 
@@ -92,11 +92,11 @@ DEFINE CLASS facload AS form
 		Enabled = .F., ;
 		ForeColor = 255,255,255, ;
 		Height = 27, ;
-		Left = 512, ;
+		Left = 364, ;
 		Name = "Command2", ;
 		TabIndex = 19, ;
 		Themes = .F., ;
-		Top = 412, ;
+		Top = 410, ;
 		Width = 86
 		*< END OBJECT: BaseClass="commandbutton" />
 
@@ -110,7 +110,7 @@ DEFINE CLASS facload AS form
 		Left = 632, ;
 		Name = "Command3", ;
 		Themes = .F., ;
-		Top = 412, ;
+		Top = 410, ;
 		Width = 84
 		*< END OBJECT: BaseClass="commandbutton" />
 
@@ -135,7 +135,7 @@ DEFINE CLASS facload AS form
 		TabIndex = 8, ;
 		Top = 141, ;
 		Width = 526
-		*< END OBJECT: BaseClass="olecontrol" OLEObject="c:\windows\syswow64\msflxgrd.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7///8EAAAA/v///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALAgL1M23twBAwAAAMADAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AEAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAIBAAAAAAAABwAAAAIAAAD+////BAAAAAUAAAAGAAAADgAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAP7////+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+g02JiG1PPEZH2woY8OF4wIUM0EggAAABdNgAAQRcAAEJvb1AAAAYAgAAAAAEAAAADAAAAAQAAAAAAAAAAAAAAXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3MkU2NzEyMC01OTU5LTExY2YtOTFGNi1DMjg2M0MzODVFMzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAACABQAAAFJvd3MACQAAAEkKAAAAAQAAAAUAAABDb2xzAAkAAABJCgAAAAMAAAAKAAAARml4ZWRDb2xzAAkAAABJCgAAAAAAAAANAAAARm9ybWF0U3RyaW5nAIwAAABIAAAAAIMAAABeQ9NESUdPICAgICAgICB8PERFU0NSSVBDSdNOICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8XlBSLlVOSVQuICAgICAgICAgICAgICAgIAkAAABXb3JkV3JhcAAFAAAATAEABQAAgAgAAIAPAACAEgAAgA0AAIAOAACAgICAAMDAwAAAAAAA/////wEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAEAAQAAAAEAAgADAAAAAAAAAAAAAQABAAAAAQAEAAAACAEAAF4AQwDTAEQASQBHAE8AIAAgACAAIAAgACAAIAAgAHwAPABEAEUAUwBDAFIASQBQAEMASQDTAE4AIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgAHwAXgBQAFIALgBVAE4ASQBUAC4AIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAAAANS4wuRj84RneMAqgBLuFEBAAAAkAGQXwEABUFyaWFsBFLjC5GPzhGd4wCqAEu4UWx0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+		*< END OBJECT: BaseClass="olecontrol" OLEObject="c:\windows\syswow64\msflxgrd.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7///8EAAAA/v///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMB+8s4B8twBAwAAAMADAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AEAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAIBAAAAAAAABwAAAAIAAAD+////BAAAAAUAAAAGAAAADgAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAP7////+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+g02JiG1PPEZH2woY8OF4wIUM0EggAAABdNgAAQRcAAEJvb1AAAAYAgAAAAAEAAAADAAAAAQAAAAAAAAAAAAAAXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3MkU2NzEyMC01OTU5LTExY2YtOTFGNi1DMjg2M0MzODVFMzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAACABQAAAFJvd3MACQAAAEkKAAAAAQAAAAUAAABDb2xzAAkAAABJCgAAAAMAAAAKAAAARml4ZWRDb2xzAAkAAABJCgAAAAAAAAANAAAARm9ybWF0U3RyaW5nAIwAAABIAAAAAIMAAABeQ9NESUdPICAgICAgICB8PERFU0NSSVBDSdNOICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8XlBSLlVOSVQuICAgICAgICAgICAgICAgIAkAAABXb3JkV3JhcAAFAAAATAEABQAAgAgAAIAPAACAEgAAgA0AAIAOAACAgICAAMDAwAAAAAAA/////wEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAEAAQAAAAEAAgADAAAAAAAAAAAAAQABAAAAAQAEAAAACAEAAF4AQwDTAEQASQBHAE8AIAAgACAAIAAgACAAIAAgAHwAPABEAEUAUwBDAFIASQBQAEMASQDTAE4AIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgAHwAXgBQAFIALgBVAE4ASQBUAC4AIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAAAANS4wuRj84RneMAqgBLuFEBAAAAkAGQXwEABUFyaWFsBFLjC5GPzhGd4wCqAEu4UWx0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
 
 	ADD OBJECT 'Label1' AS label WITH ;
 		AutoSize = .T., ;
@@ -788,6 +788,21 @@ DEFINE CLASS facload AS form
 
 	PROCEDURE lst_faclo.Click
 		thisform.CargarDetalleFactura()
+	ENDPROC
+
+	PROCEDURE lst_faclo.KeyPress
+		&& facload.lst_faclo.keypress
+		LPARAMETERS nKeyCode, nShiftAltCtrl
+		
+		IF nKeyCode = 13
+			THISFORM.CargarDetalleFactura()
+		
+			IF THISFORM.Command2.Enabled
+				THISFORM.Command2.Click()
+			ENDIF
+		
+			NODEFAULT
+		ENDIF
 	ENDPROC
 
 	PROCEDURE Text7.Click

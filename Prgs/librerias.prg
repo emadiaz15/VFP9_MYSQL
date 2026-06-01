@@ -7,14 +7,14 @@
 		LOCAL xServidor,xBasedeDatos,xPort,xId,xClave,xEstructura,xServerData
 		
 		&&Verificamos a que Servidor nos Conectamos [(local)] o [Remoto]
-		xServidor     = ALLTRIM(LeerIni("SERVER","HOSTNAME","C:\vfp9_mysql\local.ini"))
-		xPort         = ALLTRIM(LeerIni("SERVER","PUERTO","C:\vfp9_mysql\local.ini"))
-		xDriver       = ALLTRIM(LeerIni("SERVER","DRIVER","C:\vfp9_mysql\local.ini"))
+		xServidor     = ALLTRIM(LeerIni("SERVER","HOSTNAME","C:\vfp9_mysql\dhoelec.ini"))
+		xPort         = ALLTRIM(LeerIni("SERVER","PUERTO","C:\vfp9_mysql\dhoelec.ini"))
+		xDriver       = ALLTRIM(LeerIni("SERVER","DRIVER","C:\vfp9_mysql\dhoelec.ini"))
 		
 		&&establecemos parametros de conexion hacia la base de datos
-		xBasedeDatos  = ALLTRIM(LeerIni(cIdSistema,"BD","C:\vfp9_mysql\local.ini"))	
-		xId           = ALLTRIM(LeerIni(cIdSistema,"USER","C:\vfp9_mysql\local.ini"))
-		xClave        = ALLTRIM(LeerIni(cIdSistema,"CLAVE","C:\vfp9_mysql\local.ini"))
+		xBasedeDatos  = ALLTRIM(LeerIni(cIdSistema,"BD","C:\vfp9_mysql\dhoelec.ini"))	
+		xId           = ALLTRIM(LeerIni(cIdSistema,"USER","C:\vfp9_mysql\dhoelec.ini"))
+		xClave        = ALLTRIM(LeerIni(cIdSistema,"CLAVE","C:\vfp9_mysql\dhoelec.ini"))
 			
 		xEstructura   = "Driver=&xDriver;Server=&xServidor;Port=&xPort;Database=&xBasedeDatos;Uid=&xId;Pwd=&xClave;"
 		RETURN xEstructura

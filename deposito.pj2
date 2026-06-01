@@ -39,14 +39,14 @@ FOR EACH loProject IN _VFP.Projects FOXOBJECT
 ENDFOR
 
 STRTOFILE( '', '__newproject.f2b' )
-BUILD PROJECT deposito.PJX FROM '__newproject.f2b'
+BUILD PROJECT deposito.pjx FROM '__newproject.f2b'
 FOR EACH loProject IN _VFP.Projects FOXOBJECT
 	loProject.Close()
 ENDFOR
 
-MODIFY PROJECT 'deposito.PJX' NOWAIT NOSHOW NOPROJECTHOOK
+MODIFY PROJECT 'deposito.pjx' NOWAIT NOSHOW NOPROJECTHOOK
 
-loProject = _VFP.Projects('deposito.PJX')
+loProject = _VFP.Projects('deposito.pjx')
 
 WITH loProject.FILES
 	.ADD('clases\barras_titulo.vcx')		&& *< FileMetadata: Type="V" Cpid="1252" Timestamp="0" ID="0" ObjRev="544" User="" />
@@ -340,7 +340,7 @@ WITH loProject
 ENDWITH
 
 
-_VFP.Projects('deposito.PJX').Close()
+_VFP.Projects('deposito.pjx').Close()
 *ERASE '__newproject.f2b'
 CD (lcCurdir)
 RETURN

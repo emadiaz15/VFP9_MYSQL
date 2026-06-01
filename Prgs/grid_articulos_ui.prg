@@ -648,30 +648,31 @@ tnPct = VAL(TRANSFORM(NVL(tnPct, 0)))
 
 lnPuntoAlerta = tnMin * (1 + (tnPct / 100))
 
-IF lnPuntoAlerta <= 0 OR tnPos >= lnPuntoAlerta
+IF tnPos < 0
+    IF lnPuntoAlerta > 0
+        lnRatio = MIN(1, (-tnPos) / lnPuntoAlerta)
+    ELSE
+        lnRatio = 1
+    ENDIF
+    lnR = INT(160 - (70 * lnRatio))
+    lnG = INT(100 - (70 * lnRatio))
+    lnB = 255
+    RETURN RGB(lnR, lnG, lnB)
+ENDIF
+
+IF lnPuntoAlerta <= 0 OR tnPos > lnPuntoAlerta
     RETURN RGB(255,255,255)
 ENDIF
 
-lnDif = lnPuntoAlerta - tnPos
-
-*-- Misma escala que frm_alertas_stock:
-*-- a los 50 puntos o más por debajo del punto de alerta llega al color máximo.
-lnRatio = lnDif / 50
-
-IF lnRatio > 1
-    lnRatio = 1
-ENDIF
-
-IF lnRatio < 0
-    lnRatio = 0
-ENDIF
-
+lnDif   = lnPuntoAlerta - tnPos
+lnRatio = MIN(1, MAX(0, lnDif / lnPuntoAlerta))
 lnR = 255
 lnG = INT(235 - (135 * lnRatio))
 lnB = INT(235 - (135 * lnRatio))
 
 RETURN RGB(lnR, lnG, lnB)
 ENDFUNC
+
 
 
 *=========================================================
@@ -687,6 +688,10 @@ LOCAL lnUmbral
 tnPos = VAL(TRANSFORM(NVL(tnPos, 0)))
 tnMin = VAL(TRANSFORM(NVL(tnMin, 0)))
 tnPct = VAL(TRANSFORM(NVL(tnPct, 20)))
+
+IF tnPos < 0
+    RETURN RGB(255, 255, 255)
+ENDIF
 
 IF tnMin <= 0
     RETURN RGB(0,0,0)
@@ -790,6 +795,48 @@ RETURN RGB(0,0,0)
 ENDFUNC
 
 
+*!*	*=========================================================
+*!*	* GridArt_GetDynBold
+*!*	* Devuelve .T. si la fila debe mostrarse en negrita
+*!*	* (posicion negativa = estado critico / lila)
+*!*	*=========================================================
+*!*	FUNCTION GridArt_GetDynBold
+*!*	LPARAMETERS toForm
+
+*!*	LOCAL lcCur, lcColorCur, lnRec, lnPos
+
+*!*	IF VARTYPE(toForm) # "O"
+*!*	    RETURN .F.
+*!*	ENDIF
+
+*!*	lcCur      = toForm.xGridArtCursor
+*!*	lcColorCur = toForm.xGridArtColorCursor
+
+*!*	IF EMPTY(lcCur) OR EMPTY(lcColorCur)
+*!*	    RETURN .F.
+*!*	ENDIF
+
+*!*	IF !USED(lcCur) OR !USED(lcColorCur)
+*!*	    RETURN .F.
+*!*	ENDIF
+
+*!*	SELECT (lcCur)
+*!*	lnRec = RECNO()
+
+*!*	IF lnRec <= 0
+*!*	    RETURN .F.
+*!*	ENDIF
+
+*!*	IF SEEK(STR(lnRec, 6), lcColorCur, "xrecno")
+*!*	    lnPos = VAL(TRANSFORM(NVL(EVALUATE(lcColorCur + ".xposicion"), 0)))
+*!*	    RETURN (lnPos < 0)
+*!*	ENDIF
+
+*!*	RETURN .F.
+*!*	ENDFUNC
+
+
+
 *=========================================================
 * GridArt_ConfigurarColores
 * Aplica expresiones DynamicBackColor / DynamicForeColor
@@ -815,6 +862,7 @@ loGrid = EVALUATE("toForm." + lcGrid)
 
 lcExpBack   = "GridArt_GetDynBack(THISFORM)"
 lcExpFore   = "GridArt_GetDynFore(THISFORM)"
+*!*	lcExpBold   = "GridArt_GetDynBold(THISFORM)"
 lcFixedCols = ""
 
 WITH loGrid
@@ -836,6 +884,7 @@ WITH loGrid
         ELSE
             loCol.DynamicBackColor = lcExpBack
             loCol.DynamicForeColor = lcExpFore
+*!*	            loCol.DynamicFontBold  = lcExpBold
         ENDIF
 
         loCol.Sparse = .T.

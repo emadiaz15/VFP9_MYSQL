@@ -11947,6 +11947,8 @@ DEFINE CLASS formset AS formset
 		        ELSE
 		            .Columns(lnC).DynamicFontBold = ".F."
 		        ENDIF
+		        .Columns(lnC).DynamicFontBold = "NVL(cur_alerts.posicion, 0) < 0"
+		
 		    NEXT
 		
 			*-----------------------------------------------------
@@ -14180,32 +14182,31 @@ DEFINE CLASS formset AS formset
 		
 		lnPuntoAlerta = lnMin * (1 + (lnPct / 100))
 		
+		IF lnPos < 0
+		    IF lnPuntoAlerta > 0
+		        lnRatio = MIN(1, (-lnPos) / lnPuntoAlerta)
+		    ELSE
+		        lnRatio = 1
+		    ENDIF
+		    lnR = INT(160 - (70 * lnRatio))
+		    lnG = INT(100 - (70 * lnRatio))
+		    lnB = 255
+		    RETURN RGB(lnR, lnG, lnB)
+		ENDIF
+		
 		IF lnPuntoAlerta <= 0 OR lnPos >= lnPuntoAlerta
 		    lnBaseColor = RGB(255,255,255)
 		ELSE
-		    lnDif = lnPuntoAlerta - lnPos
-		
-		    lnLim = 50
-		    IF lnLim <= 0
-		        lnLim = 50
-		    ENDIF
-		
-		    lnRatio = lnDif / lnLim
-		    IF lnRatio > 1
-		        lnRatio = 1
-		    ENDIF
-		    IF lnRatio < 0
-		        lnRatio = 0
-		    ENDIF
-		
-			lnR = 255
-			lnG = INT(235 - (135 * lnRatio))
-			lnB = INT(235 - (135 * lnRatio))
-		
+		    lnDif   = lnPuntoAlerta - lnPos
+		    lnRatio = MIN(1, MAX(0, lnDif / lnPuntoAlerta))
+		    lnR = 255
+		    lnG = INT(235 - (135 * lnRatio))
+		    lnB = INT(235 - (135 * lnRatio))
 		    lnBaseColor = RGB(lnR, lnG, lnB)
 		ENDIF
 		
 		RETURN lnBaseColor
+		
 	ENDPROC
 
 	PROCEDURE dynfore_alerta
@@ -14214,6 +14215,8 @@ DEFINE CLASS formset AS formset
 		*=========================================================
 		LOCAL loFrm
 		LOCAL lnPos, lnMin
+		LOCAL lnPuntoAlerta, lnRatio, lnVal
+		LOCAL lnPct
 		
 		IF PEMSTATUS(THISFORMSET, "principal", 5)
 		    loFrm = THISFORMSET.principal
@@ -14226,11 +14229,16 @@ DEFINE CLASS formset AS formset
 		lnPos = NVL(cur_alerts.posicion, 0)
 		lnMin = NVL(cur_alerts.art_stmin, 0)
 		
+		IF lnPos < 0
+		    RETURN RGB(255, 255, 255)
+		ENDIF
+		
 		IF lnMin > 0 AND lnPos < lnMin
 		    RETURN RGB(60,60,60)
 		ENDIF
 		
 		RETURN RGB(0,0,0)
+		
 	ENDPROC
 
 	PROCEDURE editarcantidadalerta
@@ -20357,43 +20365,38 @@ DEFINE CLASS formset AS formset
 		    lnMin = NVL(cur_alerts.art_stmin, 0)
 		    lnPct = NVL(cur_alerts.art_pct_alerta, 0)
 		
-		    lnPuntoAlerta = lnMin * (1 + (lnPct / 100))
+			lnPuntoAlerta = lnMin * (1 + (lnPct / 100))
 		
-		    IF lnPuntoAlerta <= 0 OR lnPos >= lnPuntoAlerta
-		        * Blanco / sin alerta = menor prioridad
-		        lnColor = RGB(255,255,255)
-		        lnRank  = 0
-		    ELSE
-		        lnDif = lnPuntoAlerta - lnPos
+			IF lnPos < 0
+			    IF lnPuntoAlerta > 0
+			        lnRatio = MIN(1, (-lnPos) / lnPuntoAlerta)
+			    ELSE
+			        lnRatio = 1
+			    ENDIF
+			    lnR = INT(160 - (70 * lnRatio))
+			    lnG = INT(100 - (70 * lnRatio))
+			    lnB = 255
+			    lnColor = RGB(lnR, lnG, lnB)
+			    lnRank  = 2000 + INT(lnRatio * 500)
+			ELSE
+			    IF lnPuntoAlerta <= 0 OR lnPos >= lnPuntoAlerta
+			        lnColor = RGB(255,255,255)
+			        lnRank  = 0
+			    ELSE
+			        lnDif   = lnPuntoAlerta - lnPos
+			        lnRatio = MIN(1, MAX(0, lnDif / lnPuntoAlerta))
+			        lnR = 255
+			        lnG = INT(235 - (135 * lnRatio))
+			        lnB = INT(235 - (135 * lnRatio))
+			        lnColor = RGB(lnR, lnG, lnB)
+			        lnLum  = (lnR * 0.299) + (lnG * 0.587) + (lnB * 0.114)
+			        lnRank = 1000 - lnLum
+			    ENDIF
+			ENDIF
 		
-		        lnLim = 50
-		        IF lnLim <= 0
-		            lnLim = 50
-		        ENDIF
+			REPLACE ui_color_rank WITH lnRank IN cur_alerts
 		
-		        lnRatio = lnDif / lnLim
-		        IF lnRatio > 1
-		            lnRatio = 1
-		        ENDIF
-		        IF lnRatio < 0
-		            lnRatio = 0
-		        ENDIF
 		
-		        * MISMO color que DynBack_Alerta
-		        lnR = 255
-		        lnG = INT(235 - (135 * lnRatio))
-		        lnB = INT(235 - (135 * lnRatio))
-		
-		        lnColor = RGB(lnR, lnG, lnB)
-		
-		        * Menor luminancia = mas oscuro
-		        lnLum = (lnR * 0.299) + (lnG * 0.587) + (lnB * 0.114)
-		
-		        * Mayor rank = mas oscuro
-		        lnRank = 1000 - lnLum
-		    ENDIF
-		
-		    REPLACE ui_color_rank WITH lnRank IN cur_alerts
 		ENDSCAN
 		
 		*---------------------------------------------------------
@@ -20728,25 +20731,39 @@ DEFINE CLASS formset AS formset
 		    lnPos   = NVL(cur_alerts.posicion, 0)
 		    lnMin   = NVL(cur_alerts.art_stmin, 0)
 		    lnPct   = NVL(cur_alerts.art_pct_alerta, 0)
-		    lnPunto = lnMin * (1 + (lnPct / 100))
+			lnPunto = lnMin * (1 + (lnPct / 100))
 		
-		    IF lnPunto <= 0 OR lnPos >= lnPunto
-		        lnBack = RGB(255, 255, 255)
-		    ELSE
-		        lnDif   = lnPunto - lnPos
-		        lnRatio = MIN(1, MAX(0, lnDif / 50))
-		        lnG     = INT(245 - (135 * lnRatio))
-		        lnBack  = RGB(255, lnG, lnG)
-		    ENDIF
+			IF lnPos < 0
+			    IF lnPunto > 0
+			        lnRatio = MIN(1, (-lnPos) / lnPunto)
+			    ELSE
+			        lnRatio = 1
+			    ENDIF
+			    lnR    = INT(160 - (70 * lnRatio))
+			    lnG    = INT(100 - (70 * lnRatio))
+			    lnBack = RGB(lnR, lnG, 255)
+			    lnFore = RGB(255, 255, 255)
+			ELSE
+			    IF lnPunto <= 0 OR lnPos >= lnPunto
+			        lnBack = RGB(255, 255, 255)
+			        lnFore = RGB(0, 0, 0)
+			    ELSE
+			        lnDif   = lnPunto - lnPos
+			        lnRatio = MIN(1, MAX(0, lnDif / lnPunto))
+			        lnG     = INT(235 - (135 * lnRatio))
+			        lnBack  = RGB(255, lnG, lnG)
+			        IF lnMin > 0 AND lnPos < lnMin
+			            lnFore = RGB(60, 60, 60)
+			        ELSE
+			            lnFore = RGB(0, 0, 0)
+			        ENDIF
+			    ENDIF
+			ENDIF
 		
-		    IF lnMin > 0 AND lnPos < lnMin
-		        lnFore = RGB(60, 60, 60)
-		    ELSE
-		        lnFore = RGB(0, 0, 0)
-		    ENDIF
+			REPLACE col_back WITH lnBack, ;
+			        col_fore WITH lnFore
 		
-		    REPLACE col_back WITH lnBack, ;
-		            col_fore WITH lnFore
+		
 		ENDSCAN
 		
 		IF BETWEEN(lnSavedRec, 1, RECCOUNT("cur_alerts"))
