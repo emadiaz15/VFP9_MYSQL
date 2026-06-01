@@ -1,0 +1,50 @@
+*       *********************************************************
+*       *                                                         
+*       * 07/12/2017            MENCTX1.MPR             17:09:05  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * Nombre del autor                                        
+*       *                                                         
+*       * Copyright (C) 2017 Nombre de compañía                   
+*       * Dirección                                               
+*       * Ciudad,     Código pos                                  
+*       * País                                              
+*       *                                                         
+*       * Descripción:                                            
+*       * Este PROGRAMA lo ha generado automáticamente GENMENU.    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                    Definición de menú                   
+*       *                                                         
+*       *********************************************************
+*
+
+DEFINE POPUP menúcontex SHORTCUT RELATIVE FROM MROW(),MCOL()
+DEFINE BAR 1 OF menúcontex PROMPT "COBRO \<PARCIAL DE ESTE COMPROBANTE"
+ON SELECTION BAR 1 OF menúcontex ;
+	DO _52s10rfc1 ;
+	IN LOCFILE("C:\DHO SRL\MENCTX1" ,"MPX;MPR|FXP;PRG" ,"DÓNDE está MENCTX1?")
+
+ACTIVATE POPUP menúcontex
+
+*       *********************************************************
+*       *                                                         
+*       * _52S10RFC1  ON SELECTION BAR 1 OF POPUP menúcontex      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENCTX1.MPR,            Record:    5        
+*       * Called By:  ON SELECTION BAR 1 OF POPUP menúcontex      
+*       * Prompt:     COBRO PARCIAL DE ESTE COMPROBANTE           
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _52s10rfc1
+parcial=.T.
+

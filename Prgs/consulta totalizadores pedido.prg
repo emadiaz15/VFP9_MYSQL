@@ -1,0 +1,1 @@
+select str(sum(artped_cant*artped_precio),10,2),str(sum(artped_cant*artped_precio*(0.21)),10,2),str(sum(artped_cant*artped_precio*(0.21)+(artped_cant*artped_precio)),10,2) from "c:\hp electricidad\pedidos_articulos"

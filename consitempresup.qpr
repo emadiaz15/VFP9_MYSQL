@@ -1,0 +1,7 @@
+SELECT Presupuestos_articulos.nro_it,;
+  Presupuestos_articulos.artpres_cant, Articulos.art_med,;
+  Presupuestos_articulos.art_codi,;
+  ALLTRIM(Articulos.art_desc)+ALLTRIM(Presupuestos_articulos.artpres_dasc);
+ FROM  "base - hp!presupuestos_articulos" LEFT OUTER JOIN "base - hp!articulos" ;
+   ON  Presupuestos_articulos.art_codi = Articulos.art_codi;
+ WHERE Presupuestos_articulos.presup_codi = 80

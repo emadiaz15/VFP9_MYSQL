@@ -1,0 +1,72 @@
+* text=auto
+
+# Fuentes de texto VFP / FoxBin2Prg
+*.prg text eol=crlf
+*.PRG text eol=crlf
+*.qpr text eol=crlf
+*.QPR text eol=crlf
+*.mpr text eol=crlf
+*.MPR text eol=crlf
+*.sc2 text eol=crlf
+*.SC2 text eol=crlf
+*.fr2 text eol=crlf
+*.FR2 text eol=crlf
+*.vc2 text eol=crlf
+*.VC2 text eol=crlf
+*.mn2 text eol=crlf
+*.MN2 text eol=crlf
+*.pj2 text eol=crlf
+*.PJ2 text eol=crlf
+*.txt text eol=crlf
+*.md text eol=crlf
+*.ini text eol=crlf
+*.fpw text eol=crlf
+*.FPW text eol=crlf
+
+# Binarios nativos VFP
+*.scx binary
+*.SCX binary
+*.sct binary
+*.SCT binary
+*.frx binary
+*.FRX binary
+*.frt binary
+*.FRT binary
+*.vcx binary
+*.VCX binary
+*.vct binary
+*.VCT binary
+*.mnx binary
+*.MNX binary
+*.mnt binary
+*.MNT binary
+*.pjx binary
+*.PJX binary
+*.pjt binary
+*.PJT binary
+*.dbc binary
+*.DBC binary
+*.dct binary
+*.DCT binary
+*.dcx binary
+*.DCX binary
+*.lbx binary
+*.LBX binary
+*.lbt binary
+*.LBT binary
+*.bmp binary
+*.BMP binary
+*.ico binary
+*.ICO binary
+*.png binary
+*.PNG binary
+*.jpg binary
+*.JPG binary
+*.jpeg binary
+*.JPEG binary
+*.gif binary
+*.GIF binary
+*.pdf binary
+*.PDF binary
+*.zip binary
+*.ZIP binary
